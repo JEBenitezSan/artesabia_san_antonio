@@ -1,0 +1,189 @@
+.container_box {
+    color: #084298 !important;
+    background-color: #cfe2ff !important;
+    border-color: #b6d4fe !important;
+    -webkit-box-shadow: 0px 0px 10px 0px #8daad4 !important; 
+    /* border-radius: 15px !important; */
+}
+
+.container_son {
+    color: #084298 !important;
+    background-color: #5d96eb !important;
+    border-color: #5d96eb !important;
+    /* border-radius: 30px 30px 0px 0px !important; */
+}
+
+.container_son_1 {
+  color: #c0362c !important;
+  background-color: #34A2CB !important;
+  border-color: #34A2CB !important;
+  /* border-radius: 30px 30px 0px 0px !important; */
+
+}
+
+.container_son_2 {
+  color: #ffffff !important;
+  background-color: #c0362c !important;
+  border-color: #c0362c !important;
+  /* border-radius: 30px 30px 0px 0px !important; */
+}
+
+.color_texto {
+  color: #c0362c !important;
+}
+
+/* .card_info_utili_1:hover, .card_info_utili_2:hover {
+  transform: scale(0.989); 
+  transform: translateY(-10px);
+ transition: all 0.3s;
+ box-shadow: 0px 0px 5px 5px #34A2CB;
+} */
+
+.card_info_utili {
+  /* border-radius: 30px !important; */
+  -webkit-box-shadow: 5px 14px 30px 0px #7e8184 !important; 
+  background-color: #cfe2ff;
+}
+
+.card_info_utili_1{
+  /* border-radius: 30px !important; */
+  -webkit-box-shadow: 5px 14px 30px 0px #7e8184 !important; 
+  background-color: #fbe3e1;
+}
+.card_info_utili_2 {
+  /* border-radius: 30px !important; */
+  -webkit-box-shadow: 5px 14px 30px 0px #7e8184 !important; 
+  background-color: #fbe3e1;
+  
+}
+
+
+
+
+.border_perso {
+  border-color: #bcd3f5;
+}
+.border_perso_1 {
+  border-color: #c0362c !important;
+}
+  
+
+.input-group-text{
+  background-color: #5d96eb !important;
+  border-color: #5d96eb !important;
+}
+
+.fechas_i {
+  border-color: #5d96eb !important;
+}
+
+
+.container_input {
+    margin-top: 10px !important;
+}
+
+.container_info_reporte {
+    width: 100%;
+    background-color: #cfe2ff;
+    -webkit-box-shadow: 5px 14px 30px 0px #7e8184; 
+    /* border-radius: 10px; */
+}
+
+.text_primary{
+  color: #5d96eb !important;
+}
+/* .bordes_margen {
+
+    padding: 30px 5px 30px 5px !important;
+} */
+
+.odd, .even {
+    -webkit-animation-duration: 0.5s !important;
+    animation-duration: 0.5s !important;
+    -webkit-animation-fill-mode: both !important;
+    animation-fill-mode: both !important;  
+    animation-name: fadeIn !important;
+}
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }
+
+  .reporte_venta_tabla {
+    background-color: #ffffff;
+    
+  }
+
+.separador {
+ width: 100%;
+ height: 10px;
+ background-color: #444DA2;  
+ margin: 15px auto;
+ border-radius: 50px;
+}
+
+.card_caja:hover {
+  transform: scale(0.95);
+  transition: all 0.2s;
+}
+
+.card_header {
+  background-color: #0e6ce8 !important;
+  color: #ffff !important;
+}
+
+.card_caja {
+  border-color: #28548C !important;  
+  background-color: #ffffff !important;
+  color: rgb(0, 0, 0) !important;
+  -webkit-box-shadow: 7px 13px 10px 0px#486ea1;
+}
+/* .card_header_utili {
+  background-color: #12623d !important;
+  color: #ffff !important;
+}
+.card_caja_utili {
+  border-color: #12623d !important;  
+  background-color: #198754 !important;
+  color: rgb(0, 0, 0) !important;
+  -webkit-box-shadow: 7px 13px 10px 0px#8ac5a9;
+  color: #ffff !important;
+} */
+.card_caja_utili:hover {
+  transform: scale(0.95);
+  transition: all 0.2s;
+}
+
+.card_header_salario {
+  background-color: #ab830c !important;
+  color: #ffff !important;
+}
+.card_caja_salario {
+  border-color: #ab830c !important;   
+  background-color: #e6b00f !important;
+  color: rgb(0, 0, 0) !important;
+  -webkit-box-shadow: 7px 13px 10px 0px#f8e4a7;
+  color: #ffff !important;
+}
+.card_caja_salario:hover {
+  transform: scale(0.95);
+  transition: all 0.2s;
+}
+
+#lista_utilidades:hover {
+  transform: scale(0.95);
+  transition: all 0.2s;
+}
+
+#lista_utilidades {
+  width: 100%;
+}

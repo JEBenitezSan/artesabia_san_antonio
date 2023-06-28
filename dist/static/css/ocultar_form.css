@@ -1,0 +1,35 @@
+@media (max-width: 800px) {
+.recarga{
+    display: none;
+}
+
+}
+
+#nonex3 {
+    display: none;
+}
+@media (max-width: 800px) {
+    #nonex3 {
+        width: 100%;
+        display: block;
+    }
+
+    #guardarrecarga_unit, #btn_servi{
+        width: 100%;  
+    }
+
+    }
+
+    #guardarrecarga_unit, #btn_servi{
+        width: 100%;  
+    }
+
+#salt_linea {
+    display: none;
+}
+
+@media (max-width: 800px) {
+    #salt_linea {
+        display: block;
+    }
+}

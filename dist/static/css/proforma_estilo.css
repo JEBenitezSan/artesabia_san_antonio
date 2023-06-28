@@ -1,0 +1,22 @@
+#alerta_primary {
+    height: 100px;
+}
+
+#tabla {
+    background-color: #FFFFFF;
+    width: 100%;
+}
+
+#gene_profor{
+ width: 100%;
+ height: 46px;
+}
+#impri_profor{
+ width: 100%;
+ height: 46px;
+}
+
+#aler_total {
+    width: 100%;
+    height: 500px;
+}

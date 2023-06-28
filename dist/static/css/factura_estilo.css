@@ -1,0 +1,84 @@
+.table {
+    background-color: rgb(255, 255, 255);
+}
+
+.prec_fac {
+    height: 500px;
+}
+
+.agregar_clien{
+    width: 20%;
+}
+
+.total_fac {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+
+.total_fac_neto {
+   color: brown;
+   font-weight: bold; 
+   border-color: #a52a2a;
+}
+
+.total_fac_com {
+    color: #0275d8;
+    font-weight: bold; 
+    border-color: #0275d8;
+}
+
+.hr_class {
+    height: 3px !important;
+    border-radius: 10px !important;
+}
+
+.vuelto_cliente {
+    font-weight: bold; 
+ }
+
+
+.group {
+    display: flex;
+    line-height: 28px;
+    align-items: center;
+    position: relative;
+    width: 100%;
+   }
+   
+   .input_buscar {
+    width: 100%;
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    padding-left: 2.5rem;
+    border: 2px solid transparent;
+    border-radius: 50px;
+    outline: none;
+    background-color: #f3f3f4;
+    color: #0d0c22;
+    transition: .3s ease;
+   }
+   
+   .input_buscar::placeholder {
+    color: #9e9ea7;
+   }
+   
+   .input_buscar:focus, .input_buscar:hover {
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0px 0px 3px 3px #34A2CB;
+   }
+   
+   .icon {
+    position: absolute;
+    left: 1rem;
+    fill: #9e9ea7;
+    width: 1rem;
+    height: 1rem;
+   }
+   
+   
+   
+   
+   
+   

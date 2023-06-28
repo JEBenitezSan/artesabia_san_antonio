@@ -1,0 +1,9 @@
+.form_pro {
+    background-color: #ecececbb;
+    overflow: hidden;
+    /* -webkit-box-shadow: 25px 40px 28px 0px rgba(0, 0, 0, 0.38); */
+  }
+
+.conten_form {
+  padding: 10px 22px 9px 22px;
+}

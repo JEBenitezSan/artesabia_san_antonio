@@ -1,0 +1,21 @@
+.card_index:hover {
+     transform: scale(0.95); 
+   /* transform: translateY(-10px);*/
+    transition: all 0.3s;
+    box-shadow: 0px 0px 5px 5px #AF5C04;
+}
+.card_index {
+    border-radius: 40px;
+    background-color: #6B3700;
+    color: white; 
+}
+
+.card-img-top {
+    border-radius: 40px;
+}
+
+.imgebox {
+    border-radius: 40px;
+}
+
+

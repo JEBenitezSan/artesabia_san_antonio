@@ -1,0 +1,42 @@
+.container_box {
+    background-color: #ffffff;
+    -webkit-box-shadow: 5px 14px 30px 0px #7e8184; 
+    border-radius: 15px;
+}
+
+.container_input {
+    margin-top: 10px !important;
+}
+
+.container_info_reporte {
+    width: 100%;
+    background-color: #ffffff;
+    -webkit-box-shadow: 5px 14px 30px 0px #7e8184; 
+    border-radius: 10px;
+}
+
+.bordes_margen {
+
+    padding: 30px 5px 30px 5px !important;
+}
+
+.odd, .even {
+    -webkit-animation-duration: 0.5s !important;
+    animation-duration: 0.5s !important;
+    -webkit-animation-fill-mode: both !important;
+    animation-fill-mode: both !important;  
+    animation-name: fadeIn !important;
+}
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeIn {
+    animation-name: fadeIn;
+  }

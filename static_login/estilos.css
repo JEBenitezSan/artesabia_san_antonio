@@ -1,0 +1,382 @@
+
+*{
+	margin: 0px; 
+	padding: 0px; 
+	box-sizing: border-box;
+}
+
+body, html {
+	height: 100%;
+	font-family: Poppins-Regular, sans-serif;
+}
+
+
+input {
+	outline: none;
+	border: none;
+}
+
+button {
+	outline: none !important;
+	border: none;
+	background: transparent;
+}
+
+button:hover {
+	cursor: pointer;
+}
+
+/*-- contenedor del Login--*/
+#tranparencia {
+  opacity: 0.7; 
+}
+
+#fondo_login {
+  width: 100%;
+  height: 100%;
+}
+
+.container-login {
+  width: 100%;  
+  min-height: 100vh;
+  display: -webkit-flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  /*background: -webkit-linear-gradient(to right, #6043e0, #020c29);
+  background: linear-gradient(to right, #446eca, #041a7c);*/
+}
+
+.wrap-login {
+  width: 380px;
+  background: #ccaf8e; 
+  border-radius: 35px;
+  overflow: hidden;
+  padding: 27px 45px 20px 45px;
+  -webkit-box-shadow: 25px 40px 28px 0px rgba(0, 0, 0, 0.38);
+ /* box-shadow: eje-x | eje-y | blur-radius | color */
+}
+
+/*----Formulario de user y password----*/
+
+.login-form {
+  width: 100%;
+}
+
+.login-form-title {
+  display: block;
+  font-family: Poppins-Bold;
+  font-size: 40px;
+  color: #333333;
+  line-height: 1.5;
+  text-align: center;
+}
+
+
+/*------------------------------------------------------------------
+[ Input ]*/
+
+.wrap-input100 {
+  width: 100%;
+  position: relative;
+  border-bottom: 2px solid #ffffff;
+  margin-bottom: 37px;
+}
+
+.input100 {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #ffffff !important;
+  line-height: 1.2;
+
+  display: block;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  padding: 0 5px;
+}
+
+/*---------------------------------------------*/ 
+.focus-efecto {
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.focus-efecto::before {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 4px; /*ancho de la linea que hace el efecto de barra de progeso en el input al hacer foco*/
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+
+  background: #6a7dfe;
+  background: -webkit-linear-gradient(left, #6B3700, #df7504);
+  background: -o-linear-gradient(left, #6B3700, #df7504);
+  background: -moz-linear-gradient(left, #6B3700, #df7504);
+  background: linear-gradient(left, #6B3700, #df7504);
+
+
+}
+
+.focus-efecto::after {
+  font-family: Poppins-Regular;
+  font-size: 15px;
+  color: #999999;
+  line-height: 1.2;
+
+  content: attr(data-placeholder);
+  display: block;
+  width: 100%;
+  position: absolute;
+  top: 16px;
+  left: 0px;
+  padding-left: 5px;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.input100:focus + .focus-efecto::after {
+  top: -15px;
+}
+
+.input100:focus + .focus-efecto::before {
+  width: 100%;
+}
+
+.has-val.input100 + .focus-efecto::after {
+  top: -15px;
+}
+
+.has-val.input100 + .focus-efecto::before {
+  width: 100%;
+}
+
+/*---------------------------------------------*/
+
+
+/*------------------------------------------------------------------
+[ Button ]*/
+.container-login-form-btn {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 13px;
+}
+
+.wrap-login-form-btn {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 1;
+  border-radius: 10px 10px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.login-form-bgbtn {  
+  position: absolute;
+  z-index: -1;
+  width: 300%;
+  height: 100%;
+  background: #a64bf4;
+  background: -webkit-linear-gradient(right, #6B3700, #df7504, #6B3700, #df7504);
+  background: -o-linear-gradient(right, #6B3700, #df7504, #6B3700, #df7504);
+  background: -moz-linear-gradient(right, #6B3700, #df7504, #6B3700, #df7504);
+  background: linear-gradient(right, #6B3700, #df7504, #6B3700, #df7504);
+  top: 0;
+  left: -100%;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+.login-form-btn {
+  font-family: Poppins-Medium;
+  font-size: 20px;
+  color: rgb(255, 255, 255);
+  line-height: 1.2;
+  text-transform: uppercase;
+
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  width: 100%;
+  height: 50px;
+}
+
+.wrap-login-form-btn:hover .login-form-bgbtn {
+  left: 0;
+}
+
+
+/*--- Para dispositivos small responsive ---*/
+
+@media (max-width: 576px) {
+  .wrap-login {
+    padding: 35px 15px 33px 15px;
+  }
+  .container-login 
+  {  
+    min-height: 93.7vh;
+  }
+
+}
+
+
+
+
+
+/* From uiverse.io by @mrhyddenn */
+.loader {
+  width: 6em;
+  height: 6em;
+  font-size: 10px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader .face {
+  position: absolute;
+  border-radius: 50%;
+  border-style: solid;
+  animation: animate023845 3s linear infinite;
+}
+ 
+.loader .face:nth-child(1) {
+  width: 100%;
+  height: 100%;
+  color: #6B3700;
+  border-color: currentColor transparent transparent currentColor;
+  border-width: 0.2em 0.2em 0em 0em;
+  --deg: -45deg;
+  animation-direction: normal;
+}
+
+.loader .face:nth-child(2) { 
+  width: 70%;
+  height: 70%;
+  color: #df7504;
+  border-color: currentColor currentColor transparent transparent;
+  border-width: 0.2em 0em 0em 0.2em;
+  --deg: -135deg;
+  animation-direction: reverse;
+}
+
+.loader .face .circle {
+  position: absolute;
+  width: 50%;
+  height: 0.1em;
+  top: 50%;
+  left: 50%;
+  background-color: transparent;
+  transform: rotate(var(--deg));
+  transform-origin: left;
+}
+
+.loader .face .circle::before {
+  position: absolute;
+  top: -0.5em;
+  right: -0.5em;
+  content: '';
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;
+  border-radius: 50%;
+  box-shadow: 0 0 2em,
+                0 0 4em,
+                0 0 6em,
+                0 0 8em,
+                0 0 10em,
+                0 0 0 0.5em #df7504;
+}
+
+@keyframes animate023845 {
+  to {
+    transform: rotate(1turn);
+  }
+}
+
+
+
+/* From uiverse.io by @gagan-gv */
+.spinner {
+  height: 50px;
+  width: max-content;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: monospace;
+  letter-spacing: 1em;
+  color: #df7504;
+  filter: drop-shadow(0 0 10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+ 
+ .spinner span {
+  animation: loading6454 1.75s ease infinite;
+ }
+ 
+ .spinner span:nth-child(2) {
+  animation-delay: 0.25s;
+ }
+ 
+ .spinner span:nth-child(3) {
+  animation-delay: 0.5s;
+ }
+ 
+ .spinner span:nth-child(4) {
+  animation-delay: 0.75s;
+ }
+ 
+ .spinner span:nth-child(5) {
+  animation-delay: 1s;
+ }
+ 
+ .spinner span:nth-child(6) {
+  animation-delay: 1.25s;
+ }
+ 
+ .spinner span:nth-child(7) {
+  animation-delay: 1.5s;
+ }
+ 
+ @keyframes loading6454 {
+  0%, 100% {
+   transform: translateY(0);
+  }
+ 
+  50% {
+   transform: translateY(-10px);
+  }
+ }

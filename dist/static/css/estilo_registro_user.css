@@ -1,0 +1,52 @@
+.show_password{
+    background-color: #28548C;
+  }
+
+.boton_center {
+  float: right;
+}
+
+.cardbody {
+  background-color: #ffffffbb !important;
+  overflow: hidden;
+}
+
+.cardheader, .cardfooter{
+  background-color: #7faddf !important;
+}
+
+.card1, .alert {
+ -webkit-box-shadow: 5px 15px 28px 0px #57789a; 
+}
+
+.he_table {
+  background-color: #4a92df !important;
+}
+
+tbody td.expan_ico {
+width: 27px !important;
+height: auto !important;
+
+}
+
+tbody td.expan_ico:hover {
+  cursor: pointer;
+  background-color: #7faddf !important;
+  transform: scale(0.95);
+  transition: all 0.2s;
+
+}
+
+td.expan_ico {
+  background: url('../../static/iconos/expan_user.ico') no-repeat left transparent;
+ 
+}
+tr.shown td.expan_ico {
+  background: url('../../static/iconos/menos_user.ico') no-repeat left transparent; 
+
+}
+
+.show_password_reset {
+  background-color: #c9422a !important;
+  color: white !important;
+}

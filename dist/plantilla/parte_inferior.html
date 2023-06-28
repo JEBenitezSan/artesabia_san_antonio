@@ -1,0 +1,180 @@
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+
+          <div class="copyright text-center">
+
+                <div class="container-fluid">
+                  <div class="row" align="center">
+                    <div class="col-md-12">
+                      <p align="center">Copyright &copy; <strong id="id_year"></strong>  Desarrolo de pagina web ServiTec@am 
+                        <i class="fa-brands fa-facebook fa-lg"></i>
+                        <i class="fab fa-whatsapp fa-lg"></i>
+                        <i class="fab fa-tiktok fa-lg"></i>
+                        <i class="fab fa-instagram fa-lg"></i>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+          </div>
+
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">¿Confirma salir y cerrar Sesión?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body"></div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+          <a class="btn btn-primary" href="../bd/logout.php">Salir</a>
+  
+        </div>
+      </div>
+    </div>
+  </div>-->
+
+  <!-- Bootstrap core JavaScript-->
+
+  <script src="plantilla/framework/jquery/jquery-3.6.0.min.js"></script> 
+  <script src="plantilla/framework/DataTables/datatables.min.js"></script>
+  <script src="plantilla/framework/sweetalert2/sweetalert2.all.min.js"></script>
+  <script src="plantilla/framework/jquery/popper.min.js"></script>
+  <script src="plantilla/framework/bootstrap/js/bootstrap.min.js"></script>  
+  <script src="plantilla/framework/bootstrap/js/bootstrap.bundle.min.js"></script>
+  
+
+  <script src="plantilla/framework/jquery/bootstrap.bundle.min.js"></script>
+
+  <script src="plantilla/framework/Selec/js/select2.js"></script>
+  <script src="plantilla/framework/jquery-easing/jquery.easing.min.js"></script>
+  <script src="static/js/sb-admin-2.min.js"></script>
+
+
+</body>
+
+</html>
+
+<script>
+
+$(document).ready(function() {
+
+
+  var year = new Date().getFullYear();
+  $('#id_year').html(year);
+
+  $(document).on("click", ".btn1", function(){
+    Swal.fire({
+          type: 'success',
+          title: 'Notificacion Activa btn1',
+          text: 'Datos Guardados!!!'
+        })
+  });
+
+  
+  $(document).on("click", "#notifica_info", function(){
+     notificacion_lista ();
+  });
+ 
+  notificacion_num ();
+ 
+
+});
+
+function notificacion_num (){
+   opc_noti = "num_notif";
+
+    $.ajax({
+        url:"envios_bd/notificacion.php",
+        type:"POST",
+        datatype: "json",
+        data: {opc_noti}, 
+        success:function(data){
+        var js = JSON.parse(data);
+        if(js)
+            {
+                var notif;
+                for(var i = 0; i < js.length; i++)
+                      {
+                        notif = js[i].num_noti
+                      }
+
+                $('#noti_id').html(notif);
+
+          }
+
+        if(data == 0)
+        {
+          $('#noti_id').html('0');
+        }
+
+        }
+    });
+
+}
+
+function notificacion_lista (){
+   opc_noti = "lista_notif";
+
+    $.ajax({
+        url:"envios_bd/notificacion.php",
+        type:"POST",
+        datatype: "json",
+        data: {opc_noti}, 
+        success:function(data2){
+        var lis_no_js = JSON.parse(data2);
+        if(lis_no_js)
+        {
+            var tabla_lista_notif = '';
+            for(var i = 0; i < lis_no_js.length; i++)
+                  {
+                    tabla_lista_notif+= '<div class="card card_noti text-white bg-danger mb-3" style="max-width: 18rem;">'+
+                                        '<div class="card-header" align="center">'+lis_no_js[i].nombre_product+'</div>'+
+                                        '<div class="card-body">'+
+                                          '<p><i class="fas fa-shield-alt"></i> &nbsp;&nbsp;'+lis_no_js[i].id_detall_stock_pro+''+
+                                          '<br> <i class="fas fa-capsules"></i> &nbsp;&nbsp;'+lis_no_js[i].nombre_product+''+
+                                          '<br> <i class="fas fa-clock"></i> &nbsp;&nbsp;'+lis_no_js[i].fech_vencimiento+''+
+                                          '<br> <i class="fas fa-sort-amount-up-alt"></i> &nbsp;&nbsp;'+lis_no_js[i].cant_producto+''+
+                                        '</p></div>'+
+                                      '</div>'; 
+                  }
+
+
+          $('.datatabla_noti').html(tabla_lista_notif);
+        }
+
+        else
+        {
+          $('.datatabla_noti').html('0');
+        }
+
+        }
+    });
+
+}
+
+</script>

@@ -1,0 +1,111 @@
+.bor_color {
+    border-color: #28548C !important;
+    margin: 5px;
+    background-clip: border-box;
+}
+
+
+.card_caja:hover {
+    transform: scale(0.95);
+    transition: all 0.2s;
+}
+
+.card_header {
+    background-color: #28548C !important;
+    color: #ffff !important;
+}
+
+
+.table_head_cajaante {
+    background-color: #c9422a !important;
+    color: rgb(0, 0, 0);
+}
+
+
+.basic_color {
+    background-color: #28548C !important;
+    color: #ffff;
+}
+
+.card_caja {
+    border-color: #28548C !important;  
+    background-color: #c6cffb !important;
+    color: rgb(0, 0, 0) !important;
+    -webkit-box-shadow: 7px 13px 10px 0px#486ea1;
+}
+
+.card_inpu {
+    border-color: #28548C !important;  
+    background-color: #c6cffb !important;
+    color: rgb(0, 0, 0) !important;
+    -webkit-box-shadow: 7px 13px 10px 0px #486ea1;
+    border-radius: 10px;
+}
+
+
+.bordes_radi {
+    background-color: #28548C;
+    color: #ffff;
+}
+
+.color_menu {
+    background-color: #34A2CB;
+    border-radius: 10px;
+    -webkit-box-shadow:  7px 13px 10px 0px #486ea1;
+}
+.btn_perso_s {
+    background-color: #c9422a;
+}
+.btn_perso_i {
+    color: black !important;
+}
+
+.btn_perso_s:hover {
+    background-color: #8f3120;
+    cursor: pointer;
+  }
+
+.table_head {
+    background-color: #28548C !important;
+    color: #ffff;
+}
+
+.table_head_pro {
+    background-color: #444DA2 !important;
+    color: rgb(255, 255, 255);
+}
+
+.basic_color_input {
+    background-color: #34A2CB !important;
+    color: #000000;
+}
+
+.caja_btnefec:hover {
+    background-color: #207391;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .entra_detalle_caja:hover {
+    cursor: pointer;
+  }
+
+.caja_btnefec {
+    border-radius: 10px;
+}
+
+tbody td.detallefact:hover {
+    cursor: pointer;
+    background-color: #D2D2D2 !important;
+    transform: scale(0.95);
+    transition: all 0.2s;
+
+}
+
+.swal2-content{
+ font-weight: bolder !important;
+}
+
+.table {
+    background-color: rgb(255, 255, 255);
+}
