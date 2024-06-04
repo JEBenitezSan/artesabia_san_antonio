@@ -11,9 +11,9 @@
           <!--------------------------------------------->
           <div class="col-md-3">       
           <div class="card card_index border-warning mb-3" style="width: 100%;">
-            <a href="caja.php"> <img src="static/imagen/ima1.jpg" class="card-img-top animated fadeIn" alt="..."> </a>
+            <a href="factura.php"> <img src="static/imagen/ima1.jpg" class="card-img-top animated fadeIn" alt="..."> </a>
             <div class="card-body">
-              <h5 class="card-title">Caja</h5>
+              <h5 class="card-title">Factura</h5>
               <p class="card-text"></p>
             </div>
           </div>      
