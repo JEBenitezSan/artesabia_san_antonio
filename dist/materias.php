@@ -113,7 +113,7 @@
 </div>
 <!---------- --------------------Tabla------------------------------------->
 
-<div style="display: none;" id="mostar_form" class="animated fadeIn" >
+<div style="display: none;" id="mostar_form" class="animated fadeIn"> 
 <div class="container centrar_form">
 <!-----------------------------Formulario---------------------------------------------------->
 <div class="col-md-9">

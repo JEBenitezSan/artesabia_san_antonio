@@ -13,20 +13,22 @@ $(document).ready(function() {
             "footerCallback": function ( row, data, start, end, display )
             {
                 tota_entra_desc = this.api()
-                    .column(8)
+                    .column(7)
                     .data()
                     .reduce(function (a, b) {
                         return parseFloat(a) + parseFloat(b);
                     }, 0 );
                    
-                $(this.api().column(8).footer()).html('Ud:_'+tota_entra_desc);	
+                $(this.api().column(7).footer()).html('Total:_'+tota_entra_desc);	
 
             }, 
     
         createdRow: function ( row, data, index )
         {    
-            $('td', row).eq(5).css('background-color', '#EFCEAB');
-            $('td', row).eq(5).css('font-weight', ' bold');
+            $('td', row).eq(4).css('background-color', '#EFCEAB');
+            $('td', row).eq(4).css('font-weight', ' bold');
+            $('td', row).eq(1).css('font-weight', ' bold');
+
             
         },
             
@@ -141,21 +143,17 @@ $(document).ready(function() {
                 orderable: false,
                 data: 'codigo',
             },
-            {data: "id_tipomaterial"},
             {data: "tipo_material"},
             {data: "color"},
             {data: "cantidad"},
-            {data: "id_unimedidas"},
             {data: "unidad_medida"},
             {data: "prec_compra"},
-            {data: "moneda"},
-            {defaultContent: "<button type='button' class='btn btn-sm btn-warning btn_claro editar_stock_error'><img src='static/iconos/edit_stock.ico' alt='Exito' width='20' height='20'></button>"},  
+            {data: "sub_total_mate",render: $.fn.dataTable.render.number(",", ".", 2, "$ ")},
+            {defaultContent: "<button type='button' class='btn btn-sm btn-warning btn_claro'><i class='fas fa-check'></i></button>"},  
     
         ],
         
-        }); 
-
-
+        });  
 
         /// Mandar el dato en donde de clic al input 
         $(document).on("click", ".cod_material_clic", function(){
@@ -165,187 +163,6 @@ $(document).ready(function() {
         });
 
 
-        /// Abrir modal para editar el stock
-        $(document).on("click", ".editar_stock_error", function(){
-
-            const id_stock_produc = parseInt($(this).closest('tr').find('td:eq(0)').text()) ;		
-            const cod_barra = ($(this).closest('tr').find('td:eq(1)').text()) ;
-            const nombre_product = ($(this).closest('tr').find('td:eq(2)').text()) ;
-            const cant_stock = parseInt($(this).closest('tr').find('td:eq(3)').text()) ;
-            const categoria = ($(this).closest('tr').find('td:eq(4)').text()) ;
-            const id_precio = parseInt($(this).closest('tr').find('td:eq(6)').text()) ;
-            const prec_compra = parseFloat($(this).closest('tr').find('td:eq(7)').text()) ;
-            const porcen_utili = parseFloat($(this).closest('tr').find('td:eq(8)').text()) ;
-            const prec_venta = parseFloat($(this).closest('tr').find('td:eq(9)').text()) ;
-            const id_detalle_stoedit = ($(this).closest('tr').find('td:eq(10)').text()) ;
-          
-          $("#id_stock_add").val(id_stock_produc);
-          $("#id_detalle_stoedit").val(id_detalle_stoedit);
-          $("#cod_barra_add").val(cod_barra);
-          $("#nom_producto_add").val(nombre_product);
-          $("#stock_exi_add").val(cant_stock);
-          $("#id_precio_add").val(id_precio);
-          $("#pre_compra_add").val(prec_compra);
-          $("#porcen_utili_add").val(porcen_utili);
-          $("#prec_vent_add").val(prec_venta);
-          $("#categoria_edit").val(categoria);
-
-            $('#modaleditar_stock').modal({backdrop: 'static', keyboard: false})
-            $('#modaleditar_stock').modal('show');
-            
-        });
-
-
-   
-    //// Obtener lista de categoria
-    $(obtener_com_categoria());
-    function obtener_com_categoria(consulta) 
-    {
-    $.ajax({
-        url : 'combo_ajax/com_categoria.php',
-        type : 'POST',
-        dataType : 'html',
-    })
-
-    .done(function(respuesta){
-        $(".categori_pro").html(respuesta);
-    })
-
-    .fail(function() {
-        console.log("error");	
-    });
-
-    }
-
-        document.getElementById('remo_aler').style.backgroundColor = '#cce5ff';
-        /// activar campos de precios
-        $('#activar_campo_precios').click(function () {
-            if ($('#activar_campo_precios').is(':checked')) {
-            
-                $("#pre_compra_add").removeAttr("readonly");
-                $("#porcen_utili_add").removeAttr("readonly");
-                //$("#prec_vent_add").removeAttr("readonly");
-                document.getElementById('remo_aler').style.backgroundColor = '#f8d7da';
-
-                $("#id_precio_add").val('NULL');
-                $("#pre_compra_add").val('');
-                $("#porcen_utili_add").val('');
-                $("#prec_vent_add").val('');
-                
-            } else {
-                $("#pre_compra_add").attr("readonly","readonly");
-                $("#porcen_utili_add").attr("readonly","readonly");
-                //$("#prec_vent_add").attr("readonly","readonly");
-                document.getElementById('remo_aler').style.backgroundColor = '#cce5ff';
-
-            
-            }
-        });
-        
-//// Agregar datos del modal para actualizar stock y compra
-$('#form_editstock').submit(function(e){                         
-    e.preventDefault(); 
-  
-     var datos_faccompra = 'envios_bd/admin_stock.php';
-  
-    $.ajax({
-      type : 'POST',
-      url : datos_faccompra,
-      data : $('#form_editstock').serialize(),
-      success: function (data)
-      {
-  
-      if (data==1) {
-
-        document.getElementById("form_editstock").reset();
-
-        stock_productos.ajax.reload(null, false);
-        
-            Swal.fire({
-              type: 'success',
-              title: 'Datos editados correctamente!!!',
-              html: '<h6>Stock de producto actualizados</h6>',
-            });  
-  
-                } 
-  
-       else if (data == 0){
-      
-            Swal.fire({
-              type: 'error',
-              title: 'Datos No editados!!!',
-              html: '<h6>No se pudo editar el producto &nbsp; &nbsp;<i class="fas fa-exclamation-triangle"></i></h6>',
-            });    
-              }
-     }
-  
-    });    
-  
-  }); 
-
-/// al dar clic en precio de comopra se realiza el calculo y llama a una funcion
-  $('#mul_utili_add').on('keyup','#pre_compra_add', function (){
-    var myFloat = pre_compra_add = parseFloat($('#pre_compra_add').val());
-    var myFloat = porcen_utili_add = parseFloat($('#porcen_utili_add').val());
-    var myFloat = prec_vent_add = parseFloat($('#prec_vent_add').val());
-    if (pre_compra_add < 0) {
-      Swal.fire({
-          type: 'error',
-          title: 'No es posible',
-          text: 'Ingrese precio de compra valido',
-          footer: '<strong>El precio de compra deve ser mayor a 0</strong>'
-        }) 
-  
-        document.getElementById("pre_compra_add").focus();
-  }
-  else {
-     ganancia_porcen (pre_compra_add,porcen_utili_add,prec_vent_add);
-     $('input#prec_vent_add').val(aplicar_ganancia);
-  }
-  });
-  
-  /// al dar clic en precio de comopra se realiza el calculo y llama a una funcion
-  $('#mul_utili_add').on('keyup','#porcen_utili_add', function (){
-    var myFloat = pre_compra_add = parseFloat($('#pre_compra_add').val());
-    var myFloat = porcen_utili_add = parseFloat($('#porcen_utili_add').val());
-    var myFloat = prec_vent_add = parseFloat($('#prec_vent_add').val());
-   if (porcen_utili_add < 0) {
-        Swal.fire({
-            type: 'error',
-            title: 'No es posible',
-            text: 'Ingrese un porcentaje valido',
-            footer: '<strong>El porcentaje deve ser mayor a 0</strong>'
-          }) 
-  
-          document.getElementById("porcen_utili_add").focus();
-   }
-  
-   else {
-       ganancia_porcen (pre_compra_add,porcen_utili_add,prec_vent_add);
-       $('input#prec_vent_add').val(aplicar_ganancia);
-   }
-  });
-  
-
 
     });   
-    /// calcula la ganancia
-    function ganancia_porcen (pre_compra, porcen_utili, precio_vta){
-  
-    var myFloat = pre_compra 
-    var myFloat = porcen_utili 
-    var myFloat = precio_vta
-  
-    if (isNaN(pre_compra) || isNaN(porcen_utili))  
-    {
-        pre_compra=0.00;
-        precio_vta=0.00;
-        porcen_utili=0;
-    }
-    var myFloat = porcen_ganancia = pre_compra/100 * porcen_utili;
-    aplicar_ganancia = parseFloat(porcen_ganancia) + parseFloat(pre_compra);
-    var myFloat = aplicar_ganancia = aplicar_ganancia.toFixed(2); 
-  
-    return aplicar_ganancia;
-   
-  }
+

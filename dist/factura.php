@@ -24,7 +24,7 @@ $conexion = $objeto->Conectar();
 
   <!----------------------------------------------------------->
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-12 col-12 col-lg-8 mb-3">
 
         <div class="row">
 
@@ -41,7 +41,7 @@ $conexion = $objeto->Conectar();
 
         </div>
         
-      <div class="alert alert-secondary animated fadeIn" role="alert">
+      <div class="alert alert-dark alert_detalle_fac animated fadeIn" role="alert">
 
             <div class="row">
               <div class="col-md-8">
@@ -51,8 +51,8 @@ $conexion = $objeto->Conectar();
               <div class="col-md-4">
           
               <div class="d-grid gap-2 col-12 mx-auto">
-                <button class="btn btn-primary" id="add_product" type="button">Agregar <i class="fa fa-plus" aria-hidden="true"></i></button>
-                <a href="javascript:window.open('print_factura.php','','width=800, height=1000, left=580, top=50, toolbar = yes');" class="btn btn-secondary" role="button" aria-disabled="true"><i class="fa fa-print" aria-hidden="true"></i></a>
+                <button class="btn btn-warning btn_oscuro" id="add_product" type="button">Agregar <i class="fa fa-plus" aria-hidden="true"></i></button>
+                <a href="javascript:window.open('print_factura.php','','width=800, height=1000, left=580, top=50, toolbar = yes');" class="btn btn-dark" role="button" aria-disabled="true"><i class="fa fa-print" aria-hidden="true"></i></a>
 
               </div>
 
@@ -60,23 +60,22 @@ $conexion = $objeto->Conectar();
             </div>
 
       </div>
+      <hr>
       <!-----------------------Resultado de la busqueda------------------------------------>
       <div class="table-responsive">
 
           <table class='table responsive-table table-bordered table-sm' id='tabla' name='produc_resul'>
-          <thead class="table-secondary">
+          <thead style="background-color: #8F4E09; color: #ffffff">
             <tr align="center">
               <th scope="col">#_Id</th>
               <th scope="col">Cod_Barra</th>
               <th scope="col">Nombre</th>
               <th scope="col">Stock</th>
               <th scope="col">Precio</th>
-              <th scope="col">Precio_Total</th>
+              <th scope="col">Nuevo Precio</th>
               <th scope="col">Cantidad</th>
               <th scope="col">Sub_total</th>
-              <th scope="col" class="table-danger">Cod_V</th>
-              <th scope="col" class="table-danger">Can_V</th>
-              <th scope="col" class="table-danger">Opc</th>
+              <th scope="col">OPC</th>
             </tr>
           </thead>
           <tbody class="tabla-area" id="tabla_resul_produt" align="center">
@@ -92,29 +91,27 @@ $conexion = $objeto->Conectar();
   <hr>
   <!----------------------Envio post de factura------------------------------------>
   <form name="form_factura" id="form_factura" method="POST" >
-      <div class="alert alert-primary" role="alert">
+      <div class="alert alert-dark alert_detalle_fac" role="alert">
         <h5>Detalles</h5>
         <hr>
 
 
         <div class="table-responsive"> 
         <table class='table responsive-table table-bordered border-primary table-sm' id='tabla' name='produc_resul'>
-          <thead class="table-primary">
+          <thead class="" style="background-color: #8F4E09; color: #ffffff">
             <tr align="center">
-              <th scope="col"><i class="fa fa-key" aria-hidden="true"></i></th>
+              <th scope="col">#_Id</th>
               <th scope="col">Cod_Barra</th>
               <th scope="col">Nombre</th>
               <th scope="col">Stock</th>
               <th scope="col">Precio</th>
-              <th scope="col">Precio_Total</th>
+              <th scope="col">Nuevo Precio</th>
               <th scope="col">Cantidad</th>
               <th scope="col">Sub_total</th>
-              <th scope="col">Cod_V</th>
-              <th scope="col">Can_V</th>
-              <th scope="col">Borrar</th>
+              <th scope="col">OPC</th>
             </tr>
           </thead>
-          <tbody id="tabla_clone" align="center">
+          <tbody id="tabla_clone" align="center" class="alert_detalle_fac">
 
 
           </tbody>
@@ -128,18 +125,18 @@ $conexion = $objeto->Conectar();
       
 
       
-      <div class="col-md-4">
+      <div class="col-md-12 col-12 col-lg-4">
 
-      <div class="alert alert-primary animated fadeIn" role="alert">
+      <div class="alert alert-dark animated fadeIn alert_total_descuen" role="alert">
 
             <h5 value>Factura numero: <?php echo $numfactura_generar+1; ?></h5>
             <hr class="hr_class">
 
             <small class="form-label">Cliente</small>
               <div class="input-group mb-3">
-                  <select class="form-select js-example-basic-multiple" style="width: 85%" id="selec_control" name="cliente_fac">
+                  <select class="form-select js-example-basic-multiple input_personalizado" style="width: 85%" id="selec_control" name="cliente_fac">
                   </select>
-                  <button class="btn btn-info agregar_clien" type="button" style="width: 15%" id="agre_cliente">
+                  <button class="btn btn-warning btn_claro agregar_clien" type="button" style="width: 15%" id="agre_cliente">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                   </button>
               </div>
@@ -148,21 +145,21 @@ $conexion = $objeto->Conectar();
           
             
                       <small class="form-label">Sub Total factura</small>
-                      <input type="number" class="form-control mb-3 total_fac_com" 
+                      <input type="number" class="form-control mb-3 total_fac_com input_personalizado" 
                             name="total_fac_com" id="total_fac_com" 
                             placeholder="Sub Total de factura" 
                             readonly required>
                       <hr class="hr_class">
                       <small class="form-label">Aplica descuento</small>
                       <div class="input-group">
-                          <select class="form-select decuento_apli" id="decuento_apli" name="decuento_apli" required>
+                          <select class="form-select decuento_apli input_personalizado" id="decuento_apli" name="decuento_apli" required>
 
                           </select>   
-                          <button class="btn btn-primary" type="button" id="add_por_descuento"><i class="fas fa-plus"></i></button>
+                          <button class="btn btn-warning btn_claro" type="button" id="add_por_descuento"><i class="fas fa-plus"></i></button>
                       </div>
 
                       <small class="form-label">Descuento</small>
-                      <input type="number" value="" class="form-control total_fac" 
+                      <input type="number" value="" class="form-control total_fac input_personalizado" 
                             name="total_fac_descuen" id="total_fac" placeholder="Total de factura" 
                             readonly required>
           
@@ -170,33 +167,33 @@ $conexion = $objeto->Conectar();
                           <input type="hidden" value="<?php echo $id_usuario; ?>" name="user" readonly>
 
                       <small class="form-label"><strong>Total Neto:</strong></small>
-                      <input type="number" value="" class="form-control total_fac_neto" 
+                      <input type="number" value="" class="form-control total_fac_neto input_personalizado" 
                           name="total_fac_neto" id="total_fac_neto" placeholder="Total Neto:"  
                           readonly required>
                           <br>
               
                   <div class="row">
                       <div class="col-md-7">
-                      <input type="number" value="" class="form-control efectivo_fac mb-2" style="width: 100%"
+                      <input type="number" value="" class="form-control efectivo_fac mb-2 input_personalizado" style="width: 100%"
                             name="efectivo_fac" id="efectivo_fac" placeholder="Digita efectivo" 
                             required>
 
                       </div>
                       <div class="col-md-5">
-                      <input type="number" value="" class="form-control vuelto_cliente" style="width: 100%"
+                      <input type="number" value="" class="form-control vuelto_cliente input_personalizado" style="width: 100%"
                             name="vuelto_cliente" id="vuelto_cliente" placeholder="Vuelto" 
                             required readonly>
                       </div>
                   </div>
 
                 <div class="form-floating">
-                  <textarea class="form-control" name="condiciones_fac" placeholder="Condiciones" id="tex_condiciones"></textarea>
+                  <textarea class="form-control input_personalizado" name="condiciones_fac" placeholder="Condiciones" id="tex_condiciones"></textarea>
                   <label for="tex_condiciones">Condiciones</label>
                 </div>
 
                   <hr class="hr_class">
 
-                  <button type="submit" class="btn btn-primary btn-lg mb-2" style="width: 100%"> 
+                  <button type="submit" class="btn btn-warning btn_claro btn-lg mb-2" style="width: 100%"> 
                     Facturar
                     <i class="fa fa-cog fa-spin fa-fw"></i>
                   </button>
@@ -205,7 +202,7 @@ $conexion = $objeto->Conectar();
                   
               </div>
   <!----------------------Envio post de factura fin--------------------------------->
-  </form>
+           </form>
       </div>
 
       </div>

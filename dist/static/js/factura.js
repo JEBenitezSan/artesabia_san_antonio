@@ -9,7 +9,6 @@ document.getElementById("buscar_produc").focus();
 });
 
 /// Busqueda de los datos de stock de factura
-$(obtener_registros());
 function obtener_registros(bus_product)
 {
 	$.ajax({

@@ -46,19 +46,17 @@ $opc_stock = (isset($_POST['opc_stock'])) ? $_POST['opc_stock'] : '';
 switch($opc_stock) 
 {
 
-    case "lista_stock":
+    case "lista_stock": 
         $stock_productos="SELECT 
                             `materiales`.`id_materiales`,
                             `materiales`.`codigo`,
-                            `materiales`.`id_tipomaterial`,
                             `tipo_material`.`tipo_material`, 
                             `materiales`.`color`,
                             `materiales`.`cantidad`,
-                            `materiales`.`id_unimedidas`,
                             `unidmedida`.`unidad_medida`,
-                             CONCAT(`precio_material`.`prec_compra`,' ',`precio_material`.`moneda`) `prec_compra`,
-                            `precio_material`.`moneda`
-        
+                            CONCAT(`precio_material`.`prec_compra`,' ',`precio_material`.`moneda`) `prec_compra`,
+                            ((`materiales`.`cantidad`)*(`precio_material`.`prec_compra`)) as `sub_total_mate`
+                            
                         FROM `materiales` 
                             LEFT JOIN `tipo_material` ON `materiales`.`id_tipomaterial` = `tipo_material`.`id_tipomaterial` 
                             LEFT JOIN `unidmedida` ON `materiales`.`id_unimedidas` = `unidmedida`.`id_unimedidas` 

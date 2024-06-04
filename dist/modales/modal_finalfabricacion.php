@@ -71,8 +71,8 @@
 
         <div class="modal-footer">
           <div align='right'>
-              <button class="btn btn_perso_s" id="cerrar_caja_btn" type="submit" style="color:white">
-              Cerrar caja
+              <button class="btn btn_perso_s btn_claro" id="cerrar_caja_btn" type="submit">
+                Guardar
               </button>
           </div>
         </div>

@@ -6,14 +6,14 @@ $conexion = $objeto->Conectar();
 
 $id_producto = (isset($_POST['cod_barra'])) ? $_POST['cod_barra'] : '';
 
-$con_cant= "SELECT `cant_producto` FROM `detalle_stock_product` WHERE `id_detall_stock_pro` = '$id_producto'";
+$con_cant= "SELECT `cantidad` FROM `materiales` WHERE `codigo` = '$id_producto'";
 $concant = $conexion->prepare($con_cant);
 $concant->execute();
 
 $cant = 0;
 foreach ($concant as $row) 
 {
-    $cant = $row['cant_producto'];
+    $cant = $row['cantidad'];
 }
 
 
@@ -35,7 +35,7 @@ foreach ($concant as $row)
 
 <nav class="navbar navbar-light bg-dark animated">
   <div class="container">
-       <a class="btn btn-primary regresar" href="stock_productos.php" role="button">
+       <a class="btn btn-primary regresar" href="stock_materiales.php" role="button">
        <img src="static/iconos/regresar.ico" alt="" width="25" height="25">&nbsp;&nbsp; 
          Clic para regresar
         </a>
@@ -51,18 +51,17 @@ foreach ($concant as $row)
 <div class="container-fluid"> <!---Container--->
 
     <?php
-    $sql = "SELECT 
-                `detalle_stock_product`.`id_detall_stock_pro`,
-                `detalle_stock_product`.`nom_producto`,
-                `cat_precio`.`prec_venta`
-                FROM `stock_productos` 
-                LEFT JOIN `detalle_stock_product` ON `detalle_stock_product`.`id_stock_produc` = `stock_productos`.`id_stock_produc` 
-                LEFT JOIN `categoria_producto` ON `detalle_stock_product`.`id_categoria_produc` = `categoria_producto`.`id_categoria_produc` 
-                LEFT JOIN `cat_precio` ON `cat_precio`.`id_stock_produc` = `stock_productos`.`id_stock_produc`
-                
-                WHERE `cat_precio`.`id_precio` = (SELECT MAX(`cat_precio`.`id_precio`) FROM `cat_precio` WHERE `cat_precio`.`id_stock_produc` = `stock_productos`.`id_stock_produc`) AND
-                (`id_detall_stock_pro` = '$id_producto')
-                ORDER BY `stock_productos`.`cod_barra` ASC";
+    $sql = "SELECT    
+                `materiales`.`codigo`,
+                `tipo_material`.`tipo_material`, 
+                CONCAT(`precio_material`.`prec_compra`,' ',`precio_material`.`moneda`) `prec_compra`
+
+            FROM `materiales` 
+                LEFT JOIN `tipo_material` ON `materiales`.`id_tipomaterial` = `tipo_material`.`id_tipomaterial` 
+                LEFT JOIN `unidmedida` ON `materiales`.`id_unimedidas` = `unidmedida`.`id_unimedidas` 
+                LEFT JOIN `precio_material` ON `precio_material`.`id_materiales` = `materiales`.`id_materiales`
+            WHERE `precio_material`.`id_prec_mate` = (SELECT MAX(`precio_material`.`id_prec_mate`) FROM `precio_material` WHERE  `precio_material`.`id_materiales` = `materiales`.`id_materiales`) AND `materiales`.`codigo` = '$id_producto'
+            ORDER BY `materiales`.`id_materiales` DESC";
     $result = $conexion->prepare($sql);
     $result->execute();
     $arrayCodigos=array();
@@ -74,7 +73,7 @@ foreach ($concant as $row)
         <div class="col-md-12 animated fadeIn">
             <table class="table table-bordered table-sm table-responsive-xl" align="center">
 
-                            <tr align="center" bgcolor="#3797E7">
+                            <tr align="center" bgcolor="#AF5C04">
                                 <th scope="col">Cdigo Productos</th>
                             </tr>
 
@@ -85,13 +84,13 @@ foreach ($concant as $row)
                                     $arrayCodigos[]=(string)$ver[0];
                                     ?>
                                     <td align="center">
-                                <img src="static/iconos/logofar.png" alt="" width="100" height="42">
+                                <img src="static/iconos/logofar.png" alt="" width="60" height="60">
                                 <svg id='<?php echo "barcode".$ver[0]; ?>'></svg>
                                 </td> 
                             </tr>
 
                             <tr>
-                                <td align="center"> <?php echo $ver[1],' ',$ver[2],' C$'; ?>  </td>
+                                <td align="center"> <?php echo $ver[1],' ',$ver[2]; ?>  </td>
                             </tr>
                                     <?php endforeach;?>
             </table>	

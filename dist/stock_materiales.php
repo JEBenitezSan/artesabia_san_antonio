@@ -31,14 +31,12 @@
           <tr align="center">
             <th scope="col" class="tabla_estilo"><i class="fa fa-key" aria-hidden="true"></i></th>
             <th scope="col" class="tabla_estilo">Cod_Barra</th>
-            <th scope="col" class="tabla_estilo"><i class="fa fa-key" aria-hidden="true"></i></th>
             <th scope="col" class="tabla_estilo">Tipo Material</th>
             <th scope="col" class="tabla_estilo">Color</th>
             <th scope="col" class="tabla_estilo">Cantidad</th>
-            <th scope="col" class="tabla_estilo"><i class="fa fa-key" aria-hidden="true"></i></th>
             <th scope="col" class="tabla_estilo">Medidas</th>
             <th scope="col" class="tabla_estilo">Precio</th>
-            <th scope="col" class="tabla_estilo"><i class="fas fa-money-bill-wave"></i></th>
+            <th scope="col" class="tabla_estilo">Totales</th>
             <th scope="col" class="tabla_estilo">Acciones</th>
           </tr>
         </thead>
@@ -46,8 +44,6 @@
 
             <tfoot class="table-warning">
                 <tr align="center">
-                <th class="tabla_estilo"></th>
-                <th class="tabla_estilo"></th>
                 <th class="tabla_estilo"></th>
                 <th class="tabla_estilo"></th>
                 <th class="tabla_estilo"></th>
@@ -67,7 +63,6 @@
 
 <!----------------------------------------------------------->
 <?php require_once "plantilla/parte_inferior.html"?>
-<?php require_once "modales/modal_editar_stock.php";?>
 
 <script src="static/js/admin_stockmaterial.js"></script>
 

@@ -1,0 +1,14 @@
+{
+    "name": "lic_benitez/arte_san_antonio",
+    "authors": [
+        {
+            "name": "JEBenitezSan",
+            "email": "joseestebansanchezbenitez9514@gmail.com"
+        }
+    ],
+    "require": {
+        "dompdf/dompdf": "^3.0",
+        "tecnickcom/tcpdf": "^6.7",
+        "picqer/php-barcode-generator": "^2.4"
+    }
+}
