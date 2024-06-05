@@ -241,14 +241,12 @@ $consul_widg= "SELECT `id_caja` FROM `caja` WHERE `estado_caja` = 'Abierto'";
 </div> <!--Fin de container-fluid-->
 <!----------------------------------------------------------->
 <?php require_once "plantilla/parte_inferior.html"?>
-
 <?php require_once "modales/modal_abrircaja.php"?>
 <?php require_once "modales/modal_salidacaja.php"?>
 <?php require_once "modales/modal_cerrarcaja.php"?>
 <?php require_once "modales/modal_detalleventa.php"?>
 <?php require_once "modales/modal_edi_detalleventa.php"?>
 <?php require_once "modales/modal_salidas_lista.php"?>
-
 
   <script src="static/js/admin_caja.js"></script>
 
