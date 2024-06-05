@@ -5,11 +5,10 @@ document.getElementById("buscar_producfor").focus();
     language: "es"
 });
 /// Busqueda de los datos de stock de proforma
-$(obtener_registros());
 function obtener_registros(bus_product)
 {
 	$.ajax({
-		url : 'envios_bd/busqueda_produc_all.php',
+		url : 'envios_bd/busqueda_produc.php',
 		type : 'POST',
 		dataType : 'html',
 		data : { bus_product: bus_product },
@@ -166,12 +165,12 @@ $('#cerrar_cliente').click(function(){
 });
 
 /// al precionar enter llama  a una funcion
-$("body").keydown(function(event) {
-    if (event.keyCode == "13")
-     {
-        llamar_datos_busqueda();
-     }
-});
+// $("body").keydown(function(event) {
+//     if (event.keyCode == "13")
+//      {
+//         llamar_datos_busqueda();
+//      }
+// });
 
 
 /// enviar factura
@@ -290,7 +289,7 @@ function llamar_datos_busqueda(){
           $("#tabla_clone").append(produc_clon_resu);
 
           $("#buscar_producfor").val("");
-          $("#tabla_resul_produt").html("");
+          $("#tablaresul_produtprofor").html("");
           document.getElementById("buscar_producfor").focus();
        }
 }

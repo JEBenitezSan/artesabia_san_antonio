@@ -2,14 +2,14 @@
 
 class Conexion{
      public static function Conectar(){
-        // define('servidor','localhost');
-        // define('nombre_bd','artesan_bd');
-        // define('usuario','root');
-        // define('password','');  
         define('servidor','localhost');
-        define('nombre_bd','u118258995_artesan_bd');
-        define('usuario','u118258995_root_artesan');
-        define('password','IL1E2aZ]');           
+        define('nombre_bd','artesan_bd');
+        define('usuario','root');
+        define('password','');  
+        // define('servidor','localhost');
+        // define('nombre_bd','u118258995_artesan_bd');
+        // define('usuario','u118258995_root_artesan');
+        // define('password','IL1E2aZ]');           
          $opciones = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
          
          try{

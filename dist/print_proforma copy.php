@@ -100,13 +100,11 @@ $html .= '<style>
         height: 100%;
         z-index: -1;
         opacity: 0.1;
-        background: url("https://artesanantonio.sisservitecam.com/dist/plantilla/framework/fpdf/logofar2.png") no-repeat center center;
+        background: url("http://localhost/arte_san_antonio/dist/plantilla/framework/fpdf/logofar2.png") no-repeat center center;
         background-size: 80%; /* Ajustar el tamaño de la imagen */
     }
 
 </style>';
-// Marca de agua
-$html .= '<div class="watermark"></div>';
 
 $html .= '<table style="border-collapse: collapse; width: 100%; margin-top: 30px;" >
             <tr>
@@ -125,7 +123,7 @@ $html .= '</td>
           <td style="width: 50%; vertical-align: top; text-align: right;">';
 
 // Imagen
-$html .= '<img src="https://artesanantonio.sisservitecam.com/dist/plantilla/framework/fpdf/logofar2.png" width="100" height="100"/>';
+$html .= '<img src="http://localhost/arte_san_antonio/dist/plantilla/framework/fpdf/logofar2.png" width="100" height="100"/>';
 
 $html .= '</td>
           </tr>

@@ -37,19 +37,17 @@
 
                         <table class='table responsive-table table-bordered table-sm' id='tabla' name='produc_resul'>
                             <thead class="table-secondary">
-                                <tr align="center">
+                                    <tr align="center">
                                     <th scope="col">#_Id</th>
                                     <th scope="col">Cod_Barra</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Precio</th>
-                                    <th scope="col">Precio_Total</th>
+                                    <th scope="col">Nuevo Precio</th>
                                     <th scope="col">Cantidad</th>
                                     <th scope="col">Sub_total</th>
-                                    <th scope="col" class="table-danger">Cod_V</th>
-                                    <th scope="col" class="table-danger">Can_V</th>
-                                    <th scope="col" class="table-danger">Opc</th>
-                                </tr>
+                                    <th scope="col">OPC</th>
+                                    </tr>
                             </thead>
                             <tbody class="tabla-area" id="tablaresul_produtprofor" align="center">
 
@@ -66,17 +64,15 @@
                                 <table class='table responsive-table table-bordered border-primary table-sm' id='tabla' name='produc_resul'>
                                 <thead class="table-primary">
                                     <tr align="center">
-                                    <th scope="col"><i class="fa fa-key" aria-hidden="true"></i></th>
+                                    <th scope="col">#_Id</th>
                                     <th scope="col">Cod_Barra</th>
                                     <th scope="col">Nombre</th>
                                     <th scope="col">Stock</th>
                                     <th scope="col">Precio</th>
-                                    <th scope="col">Precio_Total</th>
+                                    <th scope="col">Nuevo Precio</th>
                                     <th scope="col">Cantidad</th>
                                     <th scope="col">Sub_total</th>
-                                    <th scope="col">Cod_V</th>
-                                    <th scope="col">Can_V</th>
-                                    <th scope="col">Borrar</th>
+                                    <th scope="col">OPC</th>
                                     </tr>
                                 </thead>
                                 <tbody id="tabla_clone" align="center">

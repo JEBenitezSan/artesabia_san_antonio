@@ -62,12 +62,7 @@ $(document).ready(function() {
             filename: 'Imprimir clientes',
             text: '<button type="button" class="btn btn-primary"><i class="fas fa-print"></i></button>'
         },
-    //Botón para colvis para ejegir que columnas quieres mostrar
-        {
-            extend: 'colvis',
-            text: '<button type="button" class="btn btn-primary"><i class="fas fa-crop-alt"></i></button>',
-            postfixButtons: ['colvisRestore']
-        }
+
     ],
     
         ajax:({          

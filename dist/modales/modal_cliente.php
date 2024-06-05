@@ -2,7 +2,7 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
 		
-      <div class="modal-header"  style="background-color:#0dcaf0">
+      <div class="modal-header"  style="background-color:#AF5C04">
                 <h5 class="modal-title" id="exampleModalLabel">Registrar Cliente</h5>
     
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="cerrar_cliente">
@@ -51,7 +51,7 @@
                 <label for="num_clien">Numero Telefónico</label>
                 </div>
 
-                <button type="submit" id="btn_clientes_new" class="cliente_lis btn btn-info">Guardar <i class="far fa-save"></i></button>
+                <button type="submit" id="btn_clientes_new" class="cliente_lis btn btn-warning btn_claro">Guardar <i class="far fa-save"></i></button>
                 <!----------------------------------------------------->
 
                 </div>
@@ -60,7 +60,7 @@
 
                
    </div>
-                <button type="button" id="btn_editar_cliente" class="btn btn-outline-primary btn-sm" style='display: none;'>Editar <i class="far fa-edit"></i></button>
+                <button type="button" id="btn_editar_cliente" class="btn btn-outline-warning btn_claro btn-sm" style='display: none;'>Editar <i class="far fa-edit"></i></button>
                 </form>	
 
   							
