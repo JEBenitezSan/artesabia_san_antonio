@@ -92,7 +92,7 @@
                             <div class="input-group">
                             <input type="password" value="" id="cantraseña" name="cantraseña" class="long form-control" placeholder="Contraseña" required>
                             <div class="input-group-append">
-                                <button id="show_password" class="btn btn-primary show_password" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash fa-lg icon"></span> </button>
+                                <button id="show_password" class="btn btn-warning btn_claro show_password" type="button" onclick="mostrarPassword()"> <span class="fa fa-eye-slash fa-lg icon"></span> </button>
                             </div>
                             </div>
 
@@ -104,7 +104,7 @@
                             <div class="input-group">
                             <input type="password" value="" id="repiter_con" name="repiter_con" class="long form-control" placeholder="Repite Contraseña" required>
                             <div class="input-group-append">
-                                <button id="show_password" class="btn btn-primary show_password" type="button" onclick="mostrarPassword_repite()"> <span class="fa fa-eye-slash fa-lg rep_ico"></span> </button>
+                                <button id="show_password" class="btn btn-warning btn_claro show_password" type="button" onclick="mostrarPassword_repite()"> <span class="fa fa-eye-slash fa-lg rep_ico"></span> </button>
                             </div>
                             </div>
 
@@ -117,7 +117,7 @@
 
     <div class="card-footer cardfooter text-muted" align="right">
                 <div class="boton_center">
-                <button type="submit" class="btn btn-primary show_password" id="btn_user">Guardar <i class="fas fa-save"></i></button>
+                <button type="submit" class="btn btn-warning btn_oscuro show_password" id="btn_user">Guardar <i class="fas fa-save"></i></button>
                 </div>
     </div>
             </form>
@@ -128,7 +128,7 @@
 
 <div class="row justify-content-center">
 <div class="col-md-10 my-5"> <!----------Columna---------->
-<div class="alert alert-primary" role="alert">
+<div class="alert alert-light" role="alert" id="alert_usuarios">
     <div class="table-responsive">  
     <table id="tabla_gestion_user" class="table table-bordered table-condensed table-sm" style="width:100%; background-color: white;">
     

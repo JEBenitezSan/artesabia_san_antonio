@@ -75,7 +75,7 @@
               <hr>
               <small class="form-label">Total de materiales</small>
               <div class="input-group mb-3">
-                <input type="number" class="form-control" name="total_elaboracion" id="total_elaboracion" placeholder="Total elaboración" required readonly>
+                <input type="number" class="form-control" name="total_elaboracion" value="0" id="total_elaboracion" placeholder="Total elaboración" required readonly>
                 <input type="hidden" class="form-control" name="user" id="user" value="<?php echo $id_usuario; ?>">
 
                 

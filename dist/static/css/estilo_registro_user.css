@@ -1,6 +1,9 @@
 .show_password{
     background-color: #28548C;
   }
+#alert_usuarios {
+  border-radius: 25px;
+}
 
 .boton_center {
   float: right;
@@ -12,7 +15,7 @@
 }
 
 .cardheader, .cardfooter{
-  background-color: #7faddf !important;
+  background-color: #ce7f24 !important;
 }
 
 .card1, .alert {
@@ -20,7 +23,7 @@
 }
 
 .he_table {
-  background-color: #4a92df !important;
+  background-color: #ce7f24 !important;
 }
 
 tbody td.expan_ico {

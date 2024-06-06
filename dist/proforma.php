@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="static/css/animacion.css">
 
 <div class="container-fluid">
-<form name="form_proforma" id="form_proforma" method="POST">
+<form name="form_proforma" id="form_proforma" method="POST" autocomplete="off">
 
   <h2>Genera Proformas</h2>
     <div class="row">
@@ -13,7 +13,7 @@
 
                 <div class="row">
                     <div class="col-md-7">
-                    <div class="alert alert-primary" role="alert" id="alerta_primary">
+                    <div class="alert alert-dark" role="alert" id="alerta_primary">
                         <span>Busqueda <i class="fas fa-search"></i></span>
                         <input type="text" class="form-control bordes_input" id="buscar_producfor" placeholder="Buscar">
 
@@ -21,7 +21,7 @@
                     </div>
     
                     <div class="col-md-5 mb-3">
-                        <button type="submit" class="btn btn-info mb-2" id="gene_profor"> Generar
+                        <button type="submit" class="btn btn-warning btn_oscuro mb-2" id="gene_profor"> Generar
                             <i class="fa fa-cog fa-spin fa-fw"></i>
                         </button>
 
@@ -36,7 +36,7 @@
                     <div class="table-responsive animated">
 
                         <table class='table responsive-table table-bordered table-sm' id='tabla' name='produc_resul'>
-                            <thead class="table-secondary">
+                            <thead class="" style="background-color: #8F4E09; color: #ffffff">
                                     <tr align="center">
                                     <th scope="col">#_Id</th>
                                     <th scope="col">Cod_Barra</th>
@@ -59,10 +59,10 @@
                 <!----------------------Fin de busqueda-------------------------------------> 
                     <hr>
                 <!----------------------Productos agregados---------------------------------> 
-                    <div class="alert alert-dark" role="alert">
+                    <div class="alert alert-dark" role="alert" id="aler_tabla_detalle">
                         <div class="table-responsive my-2"> 
                                 <table class='table responsive-table table-bordered border-primary table-sm' id='tabla' name='produc_resul'>
-                                <thead class="table-primary">
+                                <thead class="table-dark">
                                     <tr align="center">
                                     <th scope="col">#_Id</th>
                                     <th scope="col">Cod_Barra</th>
@@ -88,7 +88,7 @@
     
 <!----------------------Totales--------------------------------->  
 <div class="col-md-4 animated fadeIn">
-    <div class="alert alert-secondary" role="alert">
+    <div class="alert alert-dark" role="alert" id="aler_form_cliete">
 
             <h5>Proformas: 5</h5>
             <hr class="hr_class">
@@ -97,7 +97,7 @@
                     <div class="input-group mb-3">
                         <select class="form-select js-example-basic-multiple" style="width: 80%" id="selec_control" name="cliente_prof">
                         </select>
-                        <button class="btn btn-info agregar_clien" type="button" style="width: 20%" id="agre_cliente">
+                        <button class="btn btn-warning btn_oscuro agregar_clien" type="button" style="width: 20%" id="agre_cliente">
                             <i class="fa fa-plus" aria-hidden="true"></i>
                         </button>
                     </div>
