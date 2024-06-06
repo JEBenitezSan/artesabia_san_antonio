@@ -1,9 +1,65 @@
 $(document).ready(function() {
 
+// Guardar en stock proceso de fabricacion
+$('#form_fabrica_final').submit(function(e){                         
+    e.preventDefault(); 
+    var datoscliente = 'envios_bd/admin_procesos.php';
+              
+              $.ajax({
+              type : 'POST',
+              url : datoscliente,
+              data : $('#form_fabrica_final').serialize(),
+              success: function (data){
+        
+              if (data==1) {
+                  document.getElementById("form_fabrica_final").reset();
+                  const opc_procesos = "lista_procesos";
+                  notificacion_lista (opc_procesos);
+
+                  Swal.fire({
+                      type: 'success',
+                      title: 'Fabricación Finalizada',
+                      text: 'Agregada a Stock !!!', })
+                          } 
+                          else 
+                             {
+                              Swal.fire({
+                                  type: 'error',
+                                  title: 'No se pudo realizar el ingreso',
+                                  text: 'Error !!!',
+                              })
+                            }
+                     }
+      
+                  })             
+});
+
+    /// Obtener lista de tipo de productos
+ $(obtener_tipo_producto());
+ function obtener_tipo_producto(consulta) 
+     {
+     $.ajax({
+         url : 'combo_ajax/com_tipo_producto.php',
+         type : 'POST',
+         dataType : 'html',
+   })
+  
+     .done(function(respuesta){
+         $(".tipo_producto").html(respuesta);
+     })
+     
+     .fail(function() {
+         console.log("error");	
+   });
+   
+  }
+
+
 var today = new Date();
 const fecha_expor = today.toLocaleString() 
 
 const opc_procesos = "lista_procesos";
+notificacion_lista (opc_procesos);
 
     // tabla_procesos = $('#tabla_procesos').DataTable({ 
         
@@ -125,9 +181,13 @@ const opc_procesos = "lista_procesos";
     // ],
 
     // }); 
-    notificacion_lista (opc_procesos);
+    
 
     $(document).on('click', '.card_noti', function(){
+
+        // Ejemplo de uso
+        const codigo_barra = generateUniqueNumericId();
+
 
         document.getElementById("form_fabrica_final").reset();
 
@@ -174,6 +234,8 @@ const opc_procesos = "lista_procesos";
            $("#nombre_diseno").val(fabricacion_json.nombre_diseno);
            $("#total").val(fabricacion_json.total);
            $("#cliente_f").val(fabricacion_json.cliente_f);
+           $("#cod_barra_gene").val(codigo_barra);
+
 
 
     });
@@ -200,8 +262,14 @@ function notificacion_lista (opc_procesos){
              var tabla_lista_notif = '';
              for(var i = 0; i < lis_no_js.length; i++)
                    {
+                    if (lis_no_js[i].estado == "Fabricacion"){
+                    var class_estad = "card_noti";
+                    }
+                    if (lis_no_js[i].estado == "Finalizado"){
+                        var class_estad = "card_noti_agregado";
+                        }
                     
-                    tabla_lista_notif+= '<div class="col-md-3"> <div id="card_not" class="card card_noti text-white bg-warning mb-3">'+
+                    tabla_lista_notif+= '<div class="col-md-6 col-lg-3 col-12"> <div id="card_not" class="card '+class_estad+' text-white bg-warning mb-3">'+
                                             '<div class="card-header color_header" align="center"><strong>'+lis_no_js[i].cliente+'</strong></div>'+
                                             '<div class="card-body">'+
                                                 '<div><i class="fas fa-shield-alt"></i> '+lis_no_js[i].id_fabricacion+'</div>'+
@@ -230,6 +298,25 @@ function notificacion_lista (opc_procesos){
      });
  
  }
+
+//  codigo unico
+function generateUniqueNumericId() {
+    // Obtener la fecha y hora actual
+    const now = new Date();
+
+    // Extraer componentes de la fecha y hora
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0'); // Los meses van de 0 a 11
+    const day = String(now.getDate()).padStart(2, '0');
+    const hours = String(now.getHours()).padStart(2, '0');
+    const minutes = String(now.getMinutes()).padStart(2, '0');
+    const seconds = String(now.getSeconds()).padStart(2, '0');
+
+    // Combinar todos los componentes para formar el ID único
+    const uniqueId = `${year}${month}${day}${hours}${minutes}${seconds}`;
+
+    return uniqueId;
+}
 
  function ganancia_porcen (){
 

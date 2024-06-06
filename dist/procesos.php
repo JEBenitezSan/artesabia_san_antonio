@@ -35,7 +35,8 @@
             </tbody>
             </table>
     </div> -->
-
+    <h5>Artesanias en fabricación <i class="fas fa-sync-alt fa-spin"></i></h5>
+<hr>
 
     <div class="datatabla_noti row">
 

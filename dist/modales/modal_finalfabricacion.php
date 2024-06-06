@@ -7,7 +7,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
 
-      <form id="form_fabrica_final">
+      <form id="form_fabrica_final" autocomplete="off">
         <div class="modal-body">
           <div class="row">
               <div class="col-md-6">
@@ -58,15 +58,25 @@
                       <span class="input-group-text"><i class="fas fa-dollar-sign"></i></span> 
                     </div>
                   <!----------------------------------------------------->
+                  <small class="form-label">Tipo de producto</small>
+                  <div class="input-group mb-3">
+                      <select class="form-select tipo_producto" id="tipo_producto" name="tipo_producto">
+                      </select>
+                  </div>
+                  <!----------------------------------------------------->
+                  <small>Código Barra</small>
+                  <div class="input-group mb-2">
+                      <input type="text" value="" id="cod_barra_gene" name="cod_barra_gene" class="form-control" placeholder="Codigo de barra" readonly>
+                      <span class="input-group-text"><i class="fas fa-barcode"></i></span> 
+                    </div>
+                  <!----------------------------------------------------->
               </div>
           </div>
 
 
         </div>
-        <input type="hidden" name="usermodal_caja_cerrar" value="<?php echo $id_usuario;?>" id="usermodal_caja_cerrar" readonly>
-        <input type="hidden" name="opc_caja" value="cerrar_caja" id="opc_caja" readonly>
-        <input type="hidden" name="estado_caja" value="Cerrado" id="estado_caja" readonly>
-        <input type="hidden" name="id_caja" value="" id="id_caja" readonly>
+        <input type="hidden" name="user_regsitro_proceso" value="<?php echo $id_usuario;?>" id="user_regsitro_proceso" readonly>
+        <input type="hidden" name="opc_procesos" value="agregar_pro_encargo" id="opc_procesos" readonly>
 
 
         <div class="modal-footer">

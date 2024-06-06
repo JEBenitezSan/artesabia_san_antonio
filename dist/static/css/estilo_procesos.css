@@ -13,6 +13,15 @@
    height: 320px auto;
   }
 
+  .card_noti_agregado {
+    border-radius: 40px !important;
+    background-color: #c89a6c !important;
+    color: white;
+    float: left;
+    width: 100%;
+    height: 320px auto;
+  }
+
   .color_header {
     border-radius: 40px 40px 0px 0px !important;
     background-color: #c8711f !important;
