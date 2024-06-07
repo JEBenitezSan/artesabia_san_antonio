@@ -106,6 +106,202 @@ $("#agre_cliente").click(function(){
     $('#Modal_Cliente').modal('show');
 })
 
+/// Guardar cliente
+$('#form_cliente').submit(function(e){                         
+    e.preventDefault(); 
+    var datoscliente = 'envios_bd/lista_cliente_crud.php';
+              
+              $.ajax({
+              type : 'POST',
+              url : datoscliente,
+              data : $('#form_cliente').serialize(),
+              success: function (data){
+        
+              if (data==1) {
+                  document.getElementById("form_cliente").reset();
+      
+                  Swal.fire({
+                      type: 'success',
+                      title: 'Cliente Guardado Correctamente',
+                      text: 'Datos Guardados!!!', })
+                          } 
+                          else 
+                             {
+                              Swal.fire({
+                                  type: 'error',
+                                  title: 'No se pudo ingresar el Cliente',
+                                  text: 'Datos No Ingresados!!!',
+                              })
+                            }
+                     }
+      
+                  })             
+});
+// ---------------------------------------------------------
+/// Abrir modal y ponerlo statico
+$("#add_artesano").click(function(){
+    $('#modal_artesano').modal({backdrop: 'static', keyboard: false})
+    $('#modal_artesano').modal('show');
+})
+/// Guardar artesano
+$('#form_artesano').submit(function(e){                         
+    e.preventDefault(); 
+    var datoscliente = 'envios_bd/admin_combo_fabricacion.php';
+              
+              $.ajax({
+              type : 'POST',
+              url : datoscliente,
+              data : $('#form_artesano').serialize(),
+              success: function (data){
+        
+              if (data==1) {
+                  document.getElementById("form_artesano").reset();
+      
+                  Swal.fire({
+                      type: 'success',
+                      title: 'Artesano Guardado Correctamente',
+                      text: 'Exito !!!', })
+                          } 
+                          else 
+                             {
+                              Swal.fire({
+                                  type: 'error',
+                                  title: 'Artesano No Guardado',
+                                  text: 'Error !!!',
+                              })
+                            }
+                     }
+      
+                  })             
+});
+/// actualizar el combo de lista de artesano
+$('#cerrar_artesano').click(function(){ 
+    $('#com_artesano').load('combo_ajax/com_artesano.php');
+});
+// ---------------------------------------------------------
+/// Abrir modal y ponerlo statico
+$("#add_modelo").click(function(){
+    $('#modal_modelo').modal({backdrop: 'static', keyboard: false})
+    $('#modal_modelo').modal('show');
+})
+/// Guardar modelo
+$('#form_modelo').submit(function(e){                         
+    e.preventDefault(); 
+    var datoscliente = 'envios_bd/admin_combo_fabricacion.php';
+              
+              $.ajax({
+              type : 'POST',
+              url : datoscliente,
+              data : $('#form_modelo').serialize(),
+              success: function (data){
+        
+              if (data==1) {
+                  document.getElementById("form_modelo").reset();
+      
+                  Swal.fire({
+                      type: 'success',
+                      title: 'Modelo Guardado Correctamente',
+                      text: 'Exito !!!', })
+                          } 
+                          else 
+                             {
+                              Swal.fire({
+                                  type: 'error',
+                                  title: 'Modelo No Guardado',
+                                  text: 'Error !!!',
+                              })
+                            }
+                     }
+      
+                  })             
+});
+/// actualizar el combo de lista de modelo
+$('#cerrar_modelo').click(function(){ 
+    $('#com_modelo').load('combo_ajax/com_modelo.php');
+});
+// ---------------------------------------------------------
+/// Abrir modal y ponerlo statico
+$("#add_diseno").click(function(){
+    $('#modal_diseno').modal({backdrop: 'static', keyboard: false})
+    $('#modal_diseno').modal('show');
+})
+/// Guardar diseño
+$('#form_diseno').submit(function(e){                         
+    e.preventDefault(); 
+    var datoscliente = 'envios_bd/admin_combo_fabricacion.php';
+              
+              $.ajax({
+              type : 'POST',
+              url : datoscliente,
+              data : $('#form_diseno').serialize(),
+              success: function (data){
+        
+              if (data==1) {
+                  document.getElementById("form_diseno").reset();
+      
+                  Swal.fire({
+                      type: 'success',
+                      title: 'Diseño Guardado Correctamente',
+                      text: 'Exito !!!', })
+                          } 
+                          else 
+                             {
+                              Swal.fire({
+                                  type: 'error',
+                                  title: 'Diseño No Guardado',
+                                  text: 'Error !!!',
+                              })
+                            }
+                     }
+      
+                  })             
+});
+/// actualizar el combo de lista de modelo
+$('#cerrar_diseno').click(function(){ 
+    $('#com_diseno').load('combo_ajax/com_diseno.php');
+});
+// ---------------------------------------------------------
+/// Abrir modal y ponerlo statico
+$("#add_costoelabora").click(function(){
+    $('#modal_precio_elaboracion').modal({backdrop: 'static', keyboard: false})
+    $('#modal_precio_elaboracion').modal('show');
+})
+/// Guardar precio elaboracion
+$('#form_pre_elabora').submit(function(e){                         
+    e.preventDefault(); 
+    var datoscliente = 'envios_bd/admin_combo_fabricacion.php';
+              
+              $.ajax({
+              type : 'POST',
+              url : datoscliente,
+              data : $('#form_pre_elabora').serialize(),
+              success: function (data){
+        
+              if (data==1) {
+                  document.getElementById("form_pre_elabora").reset();
+      
+                  Swal.fire({
+                      type: 'success',
+                      title: 'Precio de elaboración Guardado Correctamente',
+                      text: 'Exito !!!', })
+                          } 
+                          else 
+                             {
+                              Swal.fire({
+                                  type: 'error',
+                                  title: 'Precio de elaboración No Guardado',
+                                  text: 'Error !!!',
+                              })
+                            }
+                     }
+      
+                  })             
+});
+/// actualizar el combo de lista de modelo
+$('#cerrar_elaboracion').click(function(){ 
+    $('#com_costoelabora').load('combo_ajax/com_costoelabora.php');
+});
+// ---------------------------------------------------------
 //// Obtener lista de clientes
 $(obtener_registrio_clientes());
 function obtener_registrio_clientes(consulta) 

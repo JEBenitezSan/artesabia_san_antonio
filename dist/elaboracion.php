@@ -7,15 +7,15 @@
     <div class="row">
       
       <!----------------------col-1------------------------------------>
-      <div class="col-md-4">
+      <div class="col-md-12 col-lg-4 col-12">
             <div class="alert alert-dark" role="alert" id="cambio_precio">
             
               <small class="form-label">Cliente</small>
               <div class="input-group mb-3">
-                  <select class="form-select js-example-basic-multiple" id="selec_control" name="cliente_fac" required>
+                  <select class="form-select js-example-basic-multiple" id="selec_control" name="cliente_fac" required style="width: 80%;">
 
                   </select>
-                    <button class="btn btn-warning btn_oscuro agregar_clien" type="button"  id="agre_cliente">
+                    <button class="btn btn-warning btn_oscuro agregar_clien" type="button"  id="agre_cliente" style="width: 20%;"> 
                       <i class="fa fa-plus" aria-hidden="true"></i>
                     </button>
               </div>
@@ -89,7 +89,7 @@
             </div>
       </div>
       <!-------------------------col-2--------------------------------->
-      <div class="col-md-8">
+      <div class="col-md-12 col-lg-8 col-12">
           <h2>Asignacion de materiales</h2>
 
             <div class="alert alert-secondary" role="alert">
@@ -178,6 +178,12 @@
 <!----------------------------------------------------------->
 <?php require_once "plantilla/parte_inferior.html"?>
 <?php require_once "modales/modal_cliente.php";?>
+<?php require_once "modales/modal_artesano.php";?>`
+<?php require_once "modales/modal_modelo.php";?>
+<?php require_once "modales/modal_diseno.php";?>
+<?php require_once "modales/modal_precio_elabora.php";?>
+
+
 
 <script src="static/js/elaboracion.js"></script>
   

@@ -8,7 +8,7 @@ $categoria_modelo = $conexion->prepare($consulta);
 $categoria_modelo->execute(); 
 $conexion=null;
  ?>
-<option Value="">Elige Artesano</option>
+<option Value="">Elige Modelo</option>
   <?php foreach ($categoria_modelo as $opciones):?>
      
 <option value= "<?php echo $opciones['id_modelo']?>">
