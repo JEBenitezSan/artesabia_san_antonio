@@ -1,10 +1,10 @@
 <?php require_once "plantilla/parte_superior.html"?>
-<link rel="stylesheet" href="static/css/caja_reporte_venta.css"> 
+<link rel="stylesheet" href="static/css/estilo_reporte_venta.css"> 
 <!----------------------------------------------------------->
 <div class="container-fluid animated fadeIn">
 <h4 align="center">Ventas generales</h4>
 <!----------------------------------------------------------->
-<div class="alert alert-light container_box" role="alert">
+<div class="alert alert-light alert_reporventa" role="alert">
         <div class="row container_input" id="fecha_repor">
                
                 <div class="col-md-4">
@@ -46,50 +46,44 @@
 <!----------------Tabla de informacion-------------->
 <div class="row my-4 animated fadeIn">
 <div class="container-fluid">
-    <div class="col-md-12 container_info_reporte">
+    <div class="alert alert-light alert_reporventa" role="alert">
+        <div class="col-md-12">
 
-    <div class="table-responsive bordes_margen"> 
-      <table class='table table-bordered table-hover table-sm' id='reporte_venta_tabla' style="width: 100%;">
-        <thead class="table-primary">
-          <tr align="center">
-            <th scope="col"><i class="fa fa-key" aria-hidden="true"></i></th>
-            <th scope="col">Cod_Barra</th>
-            <th scope="col">Nombre</th>
-            <th scope="col"><i class="fas fa-tags"></i> Neto</th>
-            <th scope="col"><i class="fas fa-tags"></i> Aplicado</th>
-            <th scope="col">P_Venta</th>
-            <th scope="col">Cantidad</th>
-            <th scope="col">Sub_Total</th>
-            <th scope="col">Fecha_Fac</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Vendedor</th>
-            <th scope="col">Actiones</th>
-          </tr>
-        </thead>
-        <tbody align="center">
+            <div class="table-responsive bordes_margen"> 
+                <table class='table table-bordered table-hover table-sm' id='reporte_venta_tabla' style="width: 100%;">
+                    <thead class=""  style="background-color: #FDCE95;">
+                    <tr align="center">
+                        <th scope="col">-</th>
+                        <th scope="col">Num_Fac</th>
+                        <th scope="col">Nombre_Cliente</th>
+                        <th scope="col">Total_Fac</th>
+                        <th scope="col">Descuento_Fac</th>
+                        <th scope="col">Total_Fac_Neto</th>
+                        <th scope="col">% Des</th>
+                        <th scope="col">User</th>
+                        <th scope="col">Print</th>
+                    </tr>
+                    </thead>
+                    <tbody align="center">
 
-            <tfoot class="table-primary">
-                <tr align="center">
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
-                </tr>
-            </tfoot>
-        </tbody>
-        </table>
-    </div>
-
-        
-           
+                        <tfoot class="" style="background-color: #FDCE95;">
+                            <tr align="center">
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            </tr>
+                        </tfoot>
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
     </div>
 </div>
 </div>
@@ -99,8 +93,10 @@
 </div>
 <!----------------------------------------------------------->
 <?php require_once "plantilla/parte_inferior.html"?>
+<?php require_once "modales/modal_detalle_facturado.php";?>
 
 <script src="static/js/admin_reporte_venta.js"></script>
+
 
 
 

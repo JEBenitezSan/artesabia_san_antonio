@@ -10,7 +10,7 @@ $(document).ready(function() {
    })
   
      .done(function(respuesta){
-         $(".select_vendedor").html(respuesta);
+         $(".select_vendedor").html(respuesta); 
      })
      
      .fail(function() {
@@ -380,45 +380,69 @@ function tabla_reporte_venta (fecha_1_, fecha_2_, vendedor_) {
             
             //----------------->
 
-            total_descuento = this.api()
-                .column(2)
-                .data()
-                .reduce(function (a, b) {
-                    return parseFloat(a) + parseFloat(b);
-                }, 0 );
-               
-            $(this.api().column(2).footer()).html('<i class="fas fa-tags"></i> '+total_descuento);	
-            
-            //----------------->
-
-            total_vta_venta = this.api()
+            total_compra = this.api()
             .column(4)
             .data()
             .reduce(function (a, b) {
                 return parseFloat(a) + parseFloat(b);
             }, 0 );
-            total_vta_ventas = total_vta_venta.toFixed(3); 
-            $(this.api().column(4).footer()).html('<i class="fas fa-money-bill-wave"></i> '+total_vta_ventas);	
+            totalcompra = total_compra.toFixed(3); 
 
-            
+            totalcompra_for = parseFloat(totalcompra).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+
+            $(this.api().column(4).footer()).html(totalcompra_for);	
+
+                        
             //----------------->
 
-            total_capi_venta = this.api()
-            .column(5)
+            tota_capital = this.api()
+            .column(8)
             .data()
             .reduce(function (a, b) {
                 return parseFloat(a) + parseFloat(b);
             }, 0 );
-            total_capi_ventas = total_capi_venta.toFixed(3); 
-            $(this.api().column(5).footer()).html('<i class="fas fa-money-bill-wave"></i> '+total_capi_ventas);	
+            totacapital = tota_capital.toFixed(3); 
+
+            totacapital_form = parseFloat(totacapital).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+
+            $(this.api().column(8).footer()).html(totacapital_form);	
+
+            //----------------->
+
+            total_ventas = this.api()
+            .column(9)
+            .data()
+            .reduce(function (a, b) {
+                return parseFloat(a) + parseFloat(b);
+            }, 0 );
+            totalventas = total_ventas.toFixed(3); 
+
+            totalventas_for = parseFloat(totalventas).toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+                minimumFractionDigits: 2,
+                maximumFractionDigits: 2
+            });
+
+            $(this.api().column(9).footer()).html(totalventas_for);	
 
             
             //----------------->
 
-            resul_utili_1 = total_vta_ventas - total_capi_ventas;
+            resul_utili_1 = totacapital - total_compra;
             resul_utili_1s = resul_utili_1.toFixed(3);
 
-            $("#ttl_utili_bru").val(resul_utili_1s);
+            $("#ttl_utili_bru").val(resul_utili_1s+' Utilidad');
 
             select_comisiones ();
             select_salario ();
@@ -428,11 +452,15 @@ function tabla_reporte_venta (fecha_1_, fecha_2_, vendedor_) {
         createdRow: function ( row, data, index )
         {    
             $('td', row).eq(0).css('background-color', '#629BF4');
-            $('td', row).eq(4).css('background-color', '#629BF4');
-            $('td', row).eq(4).css('font-weight', ' bold');
 
-            $('td', row).eq(5).css('background-color', '#A7CBFE');
-            $('td', row).eq(5).css('font-weight', ' bold');
+            $('td', row).eq(8).css('background-color', '#FCB567');
+            $('td', row).eq(8).css('font-weight', ' bold');
+
+            $('td', row).eq(9).css('background-color', '#2CC27D');
+            $('td', row).eq(9).css('font-weight', ' bold');
+
+            $('td', row).eq(4).css('background-color', '#FCB567');
+            $('td', row).eq(4).css('font-weight', ' bold');
 
         },
         
@@ -489,12 +517,6 @@ function tabla_reporte_venta (fecha_1_, fecha_2_, vendedor_) {
             filename: 'Imprimir ventas vendedor',
             text: '<button type="button" class="btn btn-primary btn-sm"><i class="fas fa-print"></i></button>'
         },
-    //Botón para colvis para ejegir que columnas quieres mostrar
-        {
-            extend: 'colvis',
-            text: '<button type="button" class="btn btn-primary btn-sm"><i class="fas fa-crop-alt"></i></button>',
-            postfixButtons: ['colvisRestore']
-        }
     ],
     destroy: true,
   
@@ -506,22 +528,22 @@ function tabla_reporte_venta (fecha_1_, fecha_2_, vendedor_) {
        }),
 
        columns:[
-        {   className: 'detallevende',
+        {   className: 'detallevende btn_oscuro',
         orderable: false,
         data: null,
         defaultContent: '<img src="static/iconos/ven_all.ico" alt="Exito" width="32" height="32">',
         }, 
         {data: "id_num_factura"},
-        {data: "total_descuent"},
-        {data: "id_cant_porcendes"},
-        {data: "total_fac_neto"},
-        {data: "capital_vendedor"},
-        {data: "id_caja"},
-        {data: "confirma_caja"},
-        {data: "nombre_cliente"},
+        {data: "cod_barra"},
+        {data: "nom_producto"},
+        {data: "prec_compra",render: $.fn.dataTable.render.number(",", ".", 2, "$ ")},
+        {data: "prec_venta",render: $.fn.dataTable.render.number(",", ".", 2, "$ ")},
+        {data: "cant_detall"},
+        {data: "prec_venta_detall",render: $.fn.dataTable.render.number(",", ".", 2, "$ ")},
+        {data: "sub_total",render: $.fn.dataTable.render.number(",", ".", 2, "$ ")},
+        {data: "ganania",render: $.fn.dataTable.render.number(",", ".", 2, "$ ")},
         {data: "usuario"},
-        {data: "fecha_factura"},
-        {defaultContent: "<button type='button' class='btn btn-primary btn-sm'  style='width: 80%' disabled><i class='fas fa-check'></i></button>"}, 
+        {defaultContent: "<button type='button' class='btn btn-warning btn-sm'  style='width: 80%' disabled><i class='fas fa-check'></i></button>"}, 
 
     ],
     

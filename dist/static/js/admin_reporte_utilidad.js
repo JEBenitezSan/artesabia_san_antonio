@@ -12,7 +12,6 @@ $('#fecha_repor').on('change', '#fecha_info1', function (){
     
 }); 
 
-
 /// Detectar cambio en la fecha2 y mandar los valores
 $('#fecha_repor').on('change', '#fecha_info2', function (){
     const fecha_info1  = $.trim($("#fecha_info1").val());
